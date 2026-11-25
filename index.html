@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a0c">
   <title>Rafael Appugliese | Fever</title>
   <style>
     :root {
-      --navy: #0e1a2b;
-      --navy-2: #1a2a44;
-      --pink: #ff3d7f;
-      --pink-hover: #e8316f;
-      --texto: #0e1a2b;
-      --cinza: #6b7280;
-      --borda: #e6e8ee;
-      --fundo-suave: #f7f8fb;
+      --bg: #0a0a0c;
+      --surface: #141418;
+      --pink: #ee2a62;
+      --pink-hover: #d91f55;
+      --branco: #ffffff;
+      --texto-2: #a3a3ad;
+      --linha: rgba(255, 255, 255, 0.12);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { background: var(--fundo-suave); }
+    html, body { background: var(--bg); }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: var(--texto);
+      color: var(--branco);
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
     }
@@ -27,52 +27,36 @@
       max-width: 440px;
       margin: 0 auto;
       min-height: 100vh;
-      background: #fff;
+      padding: 40px 22px 32px;
       display: flex;
       flex-direction: column;
+      align-items: center;
     }
 
-    /* Cabeçalho */
-    .topo {
-      background: radial-gradient(120% 80% at 50% 0%, var(--navy-2) 0%, var(--navy) 70%);
-      color: #fff;
-      text-align: center;
-      padding: 44px 24px 96px;
-      position: relative;
-    }
+    /* Marca */
     .marca {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--pink);
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--branco);
     }
-    .marca::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--pink);
-      box-shadow: 0 0 12px var(--pink);
-    }
+    .marca span { color: var(--pink); }
+
+    /* Foto */
     .avatar {
-      width: 132px;
-      height: 132px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
-      margin: 26px auto 0;
-      background: var(--pink);
-      border: 4px solid #fff;
+      margin-top: 36px;
+      background: var(--surface);
       position: relative;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 0 0 3px var(--pink), 0 20px 50px rgba(238, 42, 98, 0.25);
     }
-    .avatar span { font-size: 2.2rem; font-weight: 700; color: #fff; }
+    .avatar span { font-size: 2.4rem; font-weight: 800; color: var(--pink); }
     .avatar img {
       position: absolute;
       inset: 0;
@@ -81,129 +65,115 @@
       object-fit: cover;
     }
 
-    /* Bloco de identidade, sobreposto ao cabeçalho */
-    .identidade {
-      margin-top: -56px;
-      padding: 0 24px;
-      text-align: center;
-      position: relative;
-    }
-    .identidade .nome-topo {
-      display: none;
-    }
+    /* Identidade */
     h1 {
-      font-size: 1.6rem;
+      margin-top: 24px;
+      font-size: 1.75rem;
       font-weight: 800;
-      letter-spacing: -0.3px;
-      color: #fff;
-      margin-top: 0;
+      letter-spacing: -0.6px;
+      text-align: center;
     }
     .cargo {
-      margin: 8px auto 0;
-      max-width: 340px;
+      margin-top: 8px;
+      max-width: 320px;
       font-size: 0.95rem;
-      color: #cbd2e0;
       line-height: 1.45;
+      color: var(--texto-2);
+      text-align: center;
+    }
+    .tag {
+      margin-top: 16px;
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--pink);
+      color: var(--branco);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
     }
 
-    /* Conteúdo */
-    .conteudo {
-      padding: 26px 20px 32px;
+    /* Botões */
+    .acoes {
+      width: 100%;
+      margin-top: 34px;
       display: flex;
       flex-direction: column;
       gap: 12px;
-      flex: 1;
     }
     .btn {
       display: flex;
       align-items: center;
       gap: 14px;
       width: 100%;
-      padding: 16px 18px;
-      border-radius: 16px;
-      border: 1.5px solid var(--borda);
-      background: #fff;
-      color: var(--texto);
+      padding: 14px 18px 14px 14px;
+      border-radius: 999px;
+      border: 1.5px solid var(--linha);
+      background: transparent;
+      color: var(--branco);
       font-family: inherit;
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 700;
       text-decoration: none;
       cursor: pointer;
-      transition: transform 0.12s ease, background 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 1px 2px rgba(14, 26, 43, 0.04);
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.12s ease;
     }
     .btn:active { transform: scale(0.98); }
-    .btn svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .btn:hover { border-color: rgba(255, 255, 255, 0.35); background: rgba(255, 255, 255, 0.04); }
+
+    .icone {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.08);
+      flex-shrink: 0;
+    }
+    .icone svg { width: 20px; height: 20px; }
     .btn .texto { flex: 1; text-align: left; }
-    .btn .seta { color: #b0b6c3; font-size: 1.1rem; }
-    .btn:hover { background: #fafbfd; }
+    .btn .seta { color: var(--texto-2); font-size: 1.2rem; padding-right: 4px; }
 
     .btn.principal {
       background: var(--pink);
       border-color: var(--pink);
-      color: #fff;
-      box-shadow: 0 10px 24px rgba(255, 61, 127, 0.28);
+      box-shadow: 0 12px 30px rgba(238, 42, 98, 0.35);
     }
-    .btn.principal:hover { background: var(--pink-hover); }
-    .btn.principal .seta { color: rgba(255,255,255,0.8); }
+    .btn.principal:hover { background: var(--pink-hover); border-color: var(--pink-hover); }
+    .btn.principal .icone { background: rgba(255, 255, 255, 0.2); }
+    .btn.principal .seta { color: rgba(255, 255, 255, 0.85); }
 
-    .btn.escuro {
-      background: var(--navy);
-      border-color: var(--navy);
-      color: #fff;
-    }
-    .btn.escuro:hover { background: var(--navy-2); }
-    .btn.escuro .seta { color: rgba(255,255,255,0.6); }
-
-    .icone {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .btn.principal .icone { background: rgba(255,255,255,0.2); }
-    .btn.escuro .icone { background: rgba(255,255,255,0.12); }
-    .btn:not(.principal):not(.escuro) .icone { background: #f1f3f8; color: var(--navy); }
-
-    .separador {
-      margin: 10px 0 2px;
-      height: 1px;
-      background: var(--borda);
-    }
-
+    /* Rodapé */
     .rodape {
       margin-top: auto;
-      padding-top: 18px;
+      padding-top: 36px;
+      font-size: 0.85rem;
+      color: var(--texto-2);
       text-align: center;
-      font-size: 0.8rem;
-      color: var(--cinza);
     }
     .rodape a {
-      color: var(--texto);
+      color: var(--branco);
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
     }
   </style>
 </head>
 <body>
   <main class="pagina">
-    <header class="topo">
-      <div class="marca">Fever</div>
-      <div class="avatar">
-        <span>RA</span>
-        <img src="foto.jpg" alt="Rafael Appugliese" onerror="this.remove()">
-      </div>
-    </header>
+    <div class="marca">fever<span>.</span></div>
 
-    <section class="identidade">
-      <h1>Rafael Appugliese</h1>
-      <p class="cargo">Music &amp; Nightlife Senior Market Strategy and Partnerships Manager</p>
-    </section>
+    <div class="avatar">
+      <span>RA</span>
+      <img src="foto.jpg" alt="Rafael Appugliese" onerror="this.remove()">
+    </div>
 
-    <section class="conteudo">
+    <h1>Rafael Appugliese</h1>
+    <p class="cargo">Music &amp; Nightlife Senior Market Strategy and Partnerships Manager</p>
+    <span class="tag">Fever</span>
+
+    <section class="acoes">
       <a class="btn principal" href="https://wa.me/5511999008555" target="_blank" rel="noopener">
         <span class="icone">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11 11 0 0 0 3.2 17.3L2 22l4.8-1.2A11 11 0 1 0 20.5 3.5zM12 20.2a9.2 9.2 0 0 1-4.7-1.3l-.3-.2-2.9.8.8-2.8-.2-.3A9.2 9.2 0 1 1 12 20.2zm5-6.9c-.3-.1-1.6-.8-1.8-.9s-.4-.1-.6.1-.7.9-.8 1-.3.2-.6.1a7.5 7.5 0 0 1-2.2-1.4 8.3 8.3 0 0 1-1.5-1.9c-.2-.3 0-.5.1-.6l.4-.5.3-.4c.1-.2 0-.3 0-.5l-.8-2c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 2.9 2.9 0 0 0-.9 2.2 5 5 0 0 0 1.1 2.7 11.4 11.4 0 0 0 4.4 3.9c.6.3 1.1.4 1.5.5a3.6 3.6 0 0 0 1.7.1 2.8 2.8 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c0-.1-.2-.2-.5-.3z"/></svg>
@@ -212,7 +182,7 @@
         <span class="seta">›</span>
       </a>
 
-      <a class="btn escuro" href="tel:+5511999008555">
+      <a class="btn" href="tel:+5511999008555">
         <span class="icone">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
         </span>
@@ -243,13 +213,11 @@
         <span class="texto">Salvar contato</span>
         <span class="seta">›</span>
       </button>
-
-      <div class="separador"></div>
-
-      <p class="rodape">
-        <a href="tel:+5511999008555">+55 11 99900-8555</a>
-      </p>
     </section>
+
+    <p class="rodape">
+      <a href="tel:+5511999008555">+55 11 99900-8555</a>
+    </p>
   </main>
 
   <script>
