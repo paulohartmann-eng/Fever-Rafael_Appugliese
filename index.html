@@ -3,111 +3,199 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rafael Appugliese</title>
+  <title>Rafael Appugliese | Fever</title>
   <style>
     :root {
-      --bg: #0f0f12;
-      --card: #1a1a22;
-      --texto: #f5f5f7;
-      --secundario: #a1a1aa;
-      --destaque: #ff3d7f;
+      --navy: #0e1a2b;
+      --navy-2: #16243a;
+      --pink: #ff3d7f;
+      --pink-hover: #e8316f;
+      --bg: #f4f5f8;
+      --branco: #ffffff;
+      --texto: #0e1a2b;
+      --cinza: #6b7280;
+      --borda: #e5e7eb;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background: var(--bg);
       color: var(--texto);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 0 0 32px;
+    }
+    .pagina {
+      width: 100%;
+      max-width: 440px;
+      background: var(--branco);
+      min-height: 100vh;
+      box-shadow: 0 0 40px rgba(14, 26, 43, 0.08);
+    }
+
+    /* Cabeçalho escuro */
+    .topo {
+      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);
+      padding: 56px 24px 72px;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+    .marca {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--pink);
+      text-transform: uppercase;
+    }
+
+    /* Avatar com foto ou iniciais */
+    .avatar {
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      margin: 28px auto 0;
+      background: var(--pink);
+      border: 4px solid var(--branco);
+      position: relative;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     }
-    .card {
+    .avatar span {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .avatar img {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      max-width: 420px;
-      background: var(--card);
-      border-radius: 20px;
-      padding: 36px 24px 28px;
-      text-align: center;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    }
-    .foto {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
+      height: 100%;
       object-fit: cover;
-      border: 3px solid var(--destaque);
-      margin: 0 auto 16px;
-      display: block;
     }
-    h1 { font-size: 1.6rem; font-weight: 700; }
+
+    /* Corpo sobreposto */
+    .conteudo {
+      margin-top: -36px;
+      padding: 0 24px;
+      text-align: center;
+      position: relative;
+    }
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--texto);
+    }
     .cargo {
       margin-top: 8px;
       font-size: 0.95rem;
-      color: var(--secundario);
-      line-height: 1.4;
+      color: var(--cinza);
+      line-height: 1.45;
     }
-    .empresa {
+    .selo {
       display: inline-block;
       margin-top: 14px;
-      padding: 4px 12px;
+      padding: 5px 14px;
       border-radius: 999px;
-      background: var(--destaque);
-      color: #fff;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
+      background: #fde8ef;
+      color: var(--pink);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
-    .botoes {
+
+    /* Botões */
+    .acoes {
       margin-top: 28px;
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
     .btn {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       width: 100%;
-      padding: 14px;
-      border-radius: 12px;
-      border: none;
+      padding: 15px 18px;
+      border-radius: 14px;
       font-size: 1rem;
       font-weight: 600;
       text-decoration: none;
-      color: #fff;
+      border: 1.5px solid var(--borda);
+      background: var(--branco);
+      color: var(--texto);
       cursor: pointer;
-      transition: transform 0.1s ease, opacity 0.2s ease;
+      font-family: inherit;
+      transition: background 0.2s ease, transform 0.1s ease;
     }
     .btn:active { transform: scale(0.98); }
-    .btn:hover { opacity: 0.9; }
-    .whatsapp { background: #25d366; color: #0b1f12; }
-    .tel { background: #3b82f6; }
-    .linkedin { background: #0a66c2; }
-    .fever { background: #2a2a36; border: 1px solid #3a3a48; }
-    .salvar { background: var(--destaque); }
+    .btn:hover { background: #f9fafb; }
+    .btn.principal {
+      background: var(--pink);
+      border-color: var(--pink);
+      color: #fff;
+    }
+    .btn.principal:hover { background: var(--pink-hover); }
+    .btn.escuro {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
+    .btn.escuro:hover { background: var(--navy-2); }
+
+    .contato {
+      margin-top: 28px;
+      font-size: 0.9rem;
+      color: var(--cinza);
+    }
+    .contato a {
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 600;
+    }
     .rodape {
-      margin-top: 24px;
-      font-size: 0.85rem;
-      color: var(--secundario);
+      margin-top: 40px;
+      font-size: 0.75rem;
+      color: #9ca3af;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <main class="card">
-    <img class="foto" src="foto.jpg" alt="Rafael Appugliese">
-    <h1>Rafael Appugliese</h1>
-    <p class="cargo">Music &amp; Nightlife Senior Market Strategy and Partnerships Manager</p>
-    <span class="empresa">FEVER</span>
+  <main class="pagina">
+    <header class="topo">
+      <div class="marca">Fever</div>
+      <div class="avatar">
+        <span>RA</span>
+        <img src="foto.jpg" alt="Rafael Appugliese" onerror="this.remove()">
+      </div>
+    </header>
 
-    <div class="botoes">
-      <a class="btn whatsapp" href="https://wa.me/5511999008555" target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn tel" href="tel:+5511999008555">Ligar</a>
-      <a class="btn linkedin" href="https://www.linkedin.com/in/appugliese/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn fever" href="https://www.feverup.com" target="_blank" rel="noopener">Site da Fever</a>
-      <button class="btn salvar" id="salvar">Salvar contato</button>
-    </div>
+    <section class="conteudo">
+      <h1>Rafael Appugliese</h1>
+      <p class="cargo">Music &amp; Nightlife Senior Market Strategy and Partnerships Manager</p>
+      <span class="selo">Fever</span>
 
-    <p class="rodape">+55 11 99900-8555</p>
+      <div class="acoes">
+        <a class="btn principal" href="https://wa.me/5511999008555" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn escuro" href="tel:+5511999008555">Ligar</a>
+        <a class="btn" href="https://www.linkedin.com/in/appugliese/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://www.feverup.com" target="_blank" rel="noopener">Site da Fever</a>
+        <button class="btn" id="salvar" type="button">Salvar contato</button>
+      </div>
+
+      <p class="contato">
+        <a href="tel:+5511999008555">+55 11 99900-8555</a>
+      </p>
+
+      <p class="rodape">Cartão digital</p>
+    </section>
   </main>
 
   <script>
