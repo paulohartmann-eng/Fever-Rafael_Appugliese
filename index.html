@@ -179,6 +179,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
     }
     .tile .icone svg { width: 20px; height: 20px; }
     .tile strong { font-size: 0.95rem; font-weight: 700; display: block; }
@@ -189,6 +190,12 @@
       color: var(--texto-2);
       font-weight: 500;
     }
+    .tile.largo {
+      grid-column: 1 / -1;
+      flex-direction: row;
+      align-items: center;
+    }
+    .tile.largo small { word-break: break-all; }
 
     /* Bloco sobre a Fever */
     .sobre {
@@ -312,6 +319,13 @@
           </span>
           <span><strong>Fever</strong><small>Descobrir experiências</small></span>
         </a>
+
+        <a class="tile largo" href="mailto:rafael.appugliese@feverup.com">
+          <span class="icone">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+          </span>
+          <span><strong>E-mail</strong><small>rafael.appugliese@feverup.com</small></span>
+        </a>
       </div>
     </section>
 
@@ -347,6 +361,7 @@
       "ORG:Fever",
       "TITLE:Music & Nightlife Senior Market Strategy and Partnerships Manager",
       "TEL;TYPE=CELL,VOICE:+5511999008555",
+      "EMAIL;TYPE=WORK:rafael.appugliese@feverup.com",
       "URL:https://www.linkedin.com/in/appugliese/",
       "END:VCARD"
     ].join("\r\n");
